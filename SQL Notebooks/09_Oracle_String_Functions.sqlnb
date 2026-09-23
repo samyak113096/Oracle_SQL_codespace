@@ -137,16 +137,26 @@ cells:
       ORDER BY Len;
     languageId: oracle-sql
   - kind: 2
-    value: |
+    value: >
       SELECT
+
       product_name,
+
       CASE
-      WHEN LENGTH( description )> 50 THEN CONCAT( SUBSTR( description, 1,50), '...)'
+
+      WHEN LENGTH( description )> 50 THEN CONCAT( SUBSTR( description, 1,50),
+      '...)'
+
       ELSE description
+
       END product_excerpt
+
       FROM
+
       products
+
       ORDER BY
+
       product_name ;
     languageId: oracle-sql
   - kind: 2

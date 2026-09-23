@@ -65,7 +65,7 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
-      INSERT INTO sales (custoner_id, product_id, order_date,total)
+      INSERT INTO sales (customer_id, product_id, order_date,total)
       SELECT customer_id,
       product_id,
       order_date,
@@ -73,7 +73,7 @@ cells:
       FROM orders
       INNER JOIN order_items USING(order_id)
       MIERE status = 'Shipped '
-      GROUP BY custoner_id,
+      GROUP BY customer_id,
       Product_id,
       order_date;
     languageId: oracle-sql
@@ -102,7 +102,7 @@ cells:
       order_date,
       SUM(quantity * unit_price) amount
       FROM orders
-      INNER JOIN order_itens USING(order_id)
+      INNER JOIN order_items USING(order_id)
       WHERE status = 'Shipped' AND EXTRACT(year from order_date) = 2017
       GROUP BY customer_id,
       product_id,
@@ -148,7 +148,7 @@ cells:
       UPDATE
       table_name
       SET
-      columnl = value,
+      columnl = value1,
       column2 = value2,
       column3 = value3,
       ...
@@ -243,7 +243,6 @@ cells:
       sales
       WHERE
       order_id = 1
-      AND item_id =1;
     languageId: oracle-sql
   - kind: 2
     value: 1 row deleted.
